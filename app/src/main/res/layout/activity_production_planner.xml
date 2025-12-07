@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_marginBottom="56dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCurrentRegion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_nametag"
+                android:layout_margin="4dp" />
+
+            <!-- Tab Navigation -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:background="@android:color/white"
+                android:elevation="2dp">
+
+                <TextView
+                    android:id="@+id/tab_timeline"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/tab_selected_background"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="Schedule"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tab_group"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/tab_unselected_background"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="Group"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tab_conflicts"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Conflicts"
+                    android:textSize="12sp"
+                    android:textAlignment="center"
+                    android:padding="12dp"
+                    android:background="@drawable/tab_unselected_background"
+                    android:textColor="@android:color/black"
+                    android:layout_margin="4dp" />
+
+                <TextView
+                    android:id="@+id/tab_reports"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Reports"
+                    android:textSize="12sp"
+                    android:textAlignment="center"
+                    android:padding="12dp"
+                    android:background="@drawable/tab_unselected_background"
+                    android:textColor="@android:color/black"
+                    android:layout_margin="4dp" />
+
+            </LinearLayout>
+
+            <!-- Progress Bar -->
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:visibility="gone" />
+
+            <!-- MY TIMELINE TAB -->
+            <LinearLayout
+                android:id="@+id/layout_timeline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:padding="16dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📅 My Harvest Timeline"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Manage planting &amp; harvest schedules"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/darker_gray"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <Button
+                    android:id="@+id/btn_add_harvest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+ Add New Harvest Schedule"
+                    android:textAllCaps="false"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Schedule"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_empty_harvests"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No harvest schedules yet. Add your first crop!"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="32dp"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_my_harvests"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/item_harvest_card" />
+
+            </LinearLayout>
+
+            <!-- GROUP DASHBOARD TAB -->
+            <LinearLayout
+                android:id="@+id/layout_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:padding="16dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="👥 Group Coordination"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_group_member_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Seremban North - 4 farmers"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/darker_gray"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- High Risk Alert Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_high_risk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="#FFEBEE"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚠️ HIGH-RISK CONFLICTS"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#D32F2F" />
+
+                        <TextView
+                            android:id="@+id/tv_high_risk_days"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1 day(s) have excessive projected yield."
+                            android:textSize="14sp"
+                            android:layout_marginTop="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Coordination required."
+                            android:textSize="14sp"
+                            android:layout_marginTop="4dp" />
+
+                        <Button
+                            android:id="@+id/btn_view_conflicts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="View Conflicts"
+                            android:textAllCaps="false"
+                            android:layout_marginTop="8dp"
+                            style="@style/Widget.Material3.Button.OutlinedButton" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Group Members -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="👥 Group Members"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_group_members"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    tools:listitem="@layout/item_group_member" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💡 These farmers share same region and markets"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:layout_marginBottom="16dp"
+                    android:padding="8dp"
+                    android:background="#E3F2FD" />
+
+                <!-- Weekly Yield Projection -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📈 Projected Weekly Yield"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_weekly_yield"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    tools:listitem="@layout/item_weekly_yield" />
+
+                <!-- Legend -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    android:background="#F5F5F5">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🟢 Normal"
+                        android:textSize="12sp"
+                        android:layout_marginTop="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🟡 Medium Risk "
+                        android:textSize="12sp"
+                        android:layout_marginTop="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔴 High Risk "
+                        android:textSize="12sp"
+                        android:layout_marginTop="4dp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- CONFLICTS TAB -->
+            <LinearLayout
+                android:id="@+id/layout_conflicts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:padding="16dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚠️ Conflict Resolution"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Coordinate with group to resolve overlapping harvests"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/darker_gray"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detected Conflicts"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_conflicts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/item_conflict" />
+
+            </LinearLayout>
+
+            <!-- REPORTS TAB -->
+            <LinearLayout
+                android:id="@+id/layout_reports"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:padding="16dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📊 Production Reports"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Analytics for individual and group yield"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/darker_gray"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Your Production Summary -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Your Production Summary"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="12dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="16dp"
+                                android:background="#E3F2FD">
+
+                                <TextView
+                                    android:id="@+id/tv_my_total_yield"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0 kg"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold"
+                                    android:textColor="?attr/colorPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total Est. Yield"
+                                    android:textSize="12sp"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:layout_marginTop="4dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="16dp"
+                                android:background="#F1F8E9"
+                                android:layout_marginStart="8dp">
+
+                                <TextView
+                                    android:id="@+id/tv_my_active_crops"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#388E3C" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Active Crops"
+                                    android:textSize="12sp"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:layout_marginTop="4dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Group Production Summary -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Group Production Summary"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="12dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="16dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="16dp"
+                                android:background="#FFF3E0">
+
+                                <TextView
+                                    android:id="@+id/tv_group_total_yield"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2600 kg"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#F57C00" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total Group Yield"
+                                    android:textSize="12sp"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:layout_marginTop="4dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="16dp"
+                                android:background="#E8EAF6"
+                                android:layout_marginStart="8dp">
+
+                                <TextView
+                                    android:id="@+id/tv_group_member_count_stats"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="4"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#3F51B5" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Group Members"
+                                    android:textSize="12sp"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:layout_marginTop="4dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yield by Farmer:"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:id="@+id/tv_yield_by_farmer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="You..................500 kg\nAhmad Hassan.........800 kg\nSiti Organic.........600 kg\nRaj Kumar............700 kg"
+                            android:textSize="12sp"
+                            android:fontFamily="monospace" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Risk Warnings -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="#FFF3E0">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚠️ Delay Risk Warnings"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#F57C00"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="• Delaying harvest beyond optimal date may result in over-ripening"
+                            android:textSize="12sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="• Risk of spoilage increases by 15% per day after peak"
+                            android:textSize="12sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="• Market price drops 10-20% for delayed produce"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@android:color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="labeled"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

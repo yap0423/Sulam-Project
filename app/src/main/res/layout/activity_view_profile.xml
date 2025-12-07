@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Profile Header Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:backgroundTint="@color/green_primary">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <!-- Avatar -->
+                <TextView
+                    android:id="@+id/tvAvatar"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:text="👤"
+                    android:textSize="48sp"
+                    android:gravity="center"
+                    android:background="@drawable/circle_background"
+                    android:backgroundTint="@color/white"/>
+
+                <!-- User Info -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp"
+                    android:layout_gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvUserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loading..."
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:id="@+id/tvUserEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="email@example.com"
+                        android:textSize="14sp"
+                        android:textColor="@color/white_transparent"/>
+
+                    <!-- Region Badge -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/white"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📍"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:id="@+id/tvUserRegion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="Not Set"
+                            android:textSize="12sp"
+                            android:textColor="@color/gray_dark"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Contact Information Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Header with Edit Button -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Contact Information"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gray_dark"/>
+
+                </LinearLayout>
+
+                <!-- Phone -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📞"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:id="@+id/tvUserPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="+60 12-345 6789"
+                        android:textSize="14sp"
+                        android:textColor="@color/gray_dark"/>
+
+                </LinearLayout>
+
+                <!-- Email -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📧"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:id="@+id/tvUserEmailDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="email@example.com"
+                        android:textSize="14sp"
+                        android:textColor="@color/gray_dark"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- My Farms Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌾"
+                        android:textSize="24sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="My Farms"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gray_dark"/>
+
+                    <TextView
+                        android:id="@+id/tvFarmsCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="12sp"
+                        android:textColor="@color/green_primary"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/green_light"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="4dp"/>
+
+                </LinearLayout>
+
+                <!-- Farms List Container -->
+                <LinearLayout
+                    android:id="@+id/farmsListContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"/>
+
+                <!-- Empty State -->
+                <LinearLayout
+                    android:id="@+id/layoutFarmsEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌾"
+                        android:textSize="48sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="No farms added yet"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gray_dark"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Add your farm location to get started\nwith production planning"
+                        android:textSize="14sp"
+                        android:textColor="@color/gray_light"
+                        android:gravity="center"
+                        android:lineSpacingExtra="4dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- My Businesses Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🏪"
+                        android:textSize="24sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="My Businesses"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gray_dark"/>
+
+                    <TextView
+                        android:id="@+id/tvBusinessesCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="12sp"
+                        android:textColor="@color/blue_dark"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/blue_light"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="4dp"/>
+
+                </LinearLayout>
+
+                <!-- Businesses List Container -->
+                <LinearLayout
+                    android:id="@+id/businessesListContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"/>
+
+                <!-- Empty State -->
+                <LinearLayout
+                    android:id="@+id/layoutBusinessesEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🏪"
+                        android:textSize="48sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="No businesses added yet"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gray_dark"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Add your shop or outlet location\nto connect with customers"
+                        android:textSize="14sp"
+                        android:textColor="@color/gray_light"
+                        android:gravity="center"
+                        android:lineSpacingExtra="4dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- My Certifications Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📜"
+                        android:textSize="24sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="My Certifications"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gray_dark"/>
+
+                    <TextView
+                        android:id="@+id/tvCertificationsCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="12sp"
+                        android:textColor="@color/green_primary"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/green_light"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="4dp"/>
+
+                </LinearLayout>
+
+                <!-- Expiry Warning (if any) -->
+                <LinearLayout
+                    android:id="@+id/layoutExpiryWarning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="#FFF3E0"
+                    android:padding="12dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚠️"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tvExpiryWarning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="1 certification expiring soon"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#E65100"/>
+
+                </LinearLayout>
+
+                <!-- Certifications List Container -->
+                <LinearLayout
+                    android:id="@+id/certificationsListContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"/>
+
+                <!-- Empty State -->
+                <LinearLayout
+                    android:id="@+id/layoutCertificationsEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📜"
+                        android:textSize="48sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="No certifications added yet"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gray_dark"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Add your agricultural certifications\nto build trust with customers"
+                        android:textSize="14sp"
+                        android:textColor="@color/gray_light"
+                        android:gravity="center"
+                        android:lineSpacingExtra="4dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+    </LinearLayout>
+
+</ScrollView>

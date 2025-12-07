@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Internet Permission (Required for Firebase) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PineAForm"
+        tools:targetApi="31">
+
+        <!-- Login Activity (LAUNCHER - First screen) -->
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Register Activity -->
+        <activity
+            android:name=".ui.auth.RegisterActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- Main Activity (with Bottom Nav) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- Home Activity -->
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- Edit Profile Activity -->
+        <activity
+            android:name=".ui.profile.EditProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <!-- Add Farm Activity -->
+        <activity
+            android:name=".ui.farm.AddFarmActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <!-- Add Farm Activity -->
+        <activity
+            android:name=".ui.farm.EditFarmActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <!-- Business Activities -->
+        <activity
+            android:name=".ui.business.AddBusinessActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity
+            android:name=".ui.business.EditBusinessActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <!-- Certification Activities -->
+        <activity
+            android:name=".ui.certification.AddCertificationActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity
+            android:name=".ui.certification.EditCertificationActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <!-- Change Password Activity -->
+        <activity
+            android:name=".ui.profile.ChangePasswordActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <!-- Announcement Activities -->
+
+        <activity
+            android:name=".ui.announcements.CreateAnnouncementActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity
+            android:name=".ui.announcements.AnnouncementDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity
+            android:name=".ui.planner.ProductionPlannerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.planner.AddHarvestActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.planner.EditHarvestActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.planner.ConflictChatActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+
+    </application>
+
+</manifest>

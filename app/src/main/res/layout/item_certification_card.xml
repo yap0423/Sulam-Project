@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="2dp">
+
+    <LinearLayout
+        android:id="@+id/certCardBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <!-- Certification Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📜"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:id="@+id/tvCertificationType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Certification Type"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gray_dark"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvCertificateNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Cert #: XXXX-XXXX-XXXX"
+                    android:textSize="13sp"
+                    android:textColor="@color/gray_dark"/>
+
+            </LinearLayout>
+
+            <!-- Edit/Delete Buttons -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEditCertification"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    app:icon="@android:drawable/ic_menu_edit"
+                    app:iconSize="20dp"
+                    app:iconTint="@color/gray_dark"
+                    app:iconGravity="textStart"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDeleteCertification"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    app:icon="@android:drawable/ic_menu_delete"
+                    app:iconSize="20dp"
+                    app:iconTint="@android:color/holo_red_dark"
+                    app:iconGravity="textStart"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_light"
+            android:alpha="0.3"
+            android:layout_marginHorizontal="16dp"/>
+
+        <!-- Certification Details -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Issuing Body -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🏛️"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tvIssuingBody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Issuing Body"
+                    android:textSize="13sp"
+                    android:textColor="@color/gray_dark"/>
+
+            </LinearLayout>
+
+            <!-- Dates -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="📅 Issued:"
+                        android:textSize="12sp"
+                        android:textColor="@color/gray_dark"/>
+
+                    <TextView
+                        android:id="@+id/tvIssuedDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="01 Jan 2024"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gray_dark"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="⏰ Expires:"
+                        android:textSize="12sp"
+                        android:textColor="@color/gray_dark"/>
+
+                    <TextView
+                        android:id="@+id/tvExpiryDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="01 Jan 2027"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gray_dark"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Status Badge -->
+            <LinearLayout
+                android:id="@+id/statusBadge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_background"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvStatusIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🟢"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Valid (365 days remaining)"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+            <!-- Notes (if available) -->
+            <LinearLayout
+                android:id="@+id/layoutNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📝 Notes:"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gray_dark"/>
+
+                <TextView
+                    android:id="@+id/tvNotes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Notes"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray_dark"
+                    android:maxLines="3"
+                    android:ellipsize="end"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

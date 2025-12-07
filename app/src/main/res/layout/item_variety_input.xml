@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="8dp"
+    app:strokeColor="@color/green_primary"
+    app:strokeWidth="2dp"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/green_light"
+        android:backgroundTint="#E8F5E9">
+
+        <!-- Header with Remove Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvVarietyNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Variety 1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/green_dark"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRemoveVariety"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remove"
+                android:textSize="11sp"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:textColor="@android:color/holo_red_dark"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"/>
+
+        </LinearLayout>
+
+        <!-- Variety Type Dropdown -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilVarietyType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Type *"
+            app:boxStrokeColor="@color/green_primary"
+            app:hintTextColor="@color/green_primary"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+            <AutoCompleteTextView
+                android:id="@+id/etVarietyType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Area Size -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilAreaSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Area Size (hectares) *"
+            app:boxStrokeColor="@color/green_primary"
+            app:hintTextColor="@color/green_primary"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAreaSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

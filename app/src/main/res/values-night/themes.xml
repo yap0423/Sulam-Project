@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EntrepreneurApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+
+    <style name="Theme.PineAForm" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/green_light</item>
+        <item name="colorPrimaryVariant">@color/green_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="android:statusBarColor">@color/green_dark</item>
+        <item name="android:windowBackground">@color/gray_dark</item>
+    </style>
+</resources>
