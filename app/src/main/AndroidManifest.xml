@@ -40,12 +40,6 @@
             android:exported="false"
             android:screenOrientation="portrait"/>
 
-        <!-- Home Activity -->
-        <activity
-            android:name=".ui.home.HomeActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"/>
-
         <!-- Edit Profile Activity -->
         <activity
             android:name=".ui.profile.EditProfileActivity"
