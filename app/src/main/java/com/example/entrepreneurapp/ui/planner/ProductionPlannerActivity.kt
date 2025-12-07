@@ -365,8 +365,11 @@ class ProductionPlannerActivity : AppCompatActivity() {
             val totalYield = dayHarvests.sumOf { it.estimatedYield }
             val riskLevel = getRiskLevel(totalYield)
 
+            // 👉 Calculate unique farmers FOR THIS DAY ONLY
+            val farmersAffected = dayHarvests.map { it.userId }.distinct()
+
             // Conflict condition: more than 1 farmers AND risk is high
-            if (dayHarvests.size > 1 && riskLevel == "high") {
+            if (farmersAffected.size > 1 && riskLevel == "high") {
                 val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(dateStr)
                 conflicts.add(
                     HarvestConflict(
